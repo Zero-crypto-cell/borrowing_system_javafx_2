@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="650.0" prefWidth="1000.0" styleClass="root-pane"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.csslab.controller.MainController">
+
+    <top>
+        <VBox spacing="4.0" styleClass="header-box">
+            <padding><Insets bottom="15.0" left="25.0" right="25.0" top="15.0" /></padding>
+            <Label styleClass="header-title" text="CSS Laboratory Equipment Borrowing System" />
+            <Label styleClass="header-subtitle" text="Computer Systems Servicing • Tool &amp; Hardware Tracking" />
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <!-- TAB 1: BORROW & RETURN -->
+            <Tab text="Borrow &amp; Return Logs">
+                <SplitPane dividerPositions="0.35">
+                    <!-- Left Form -->
+                    <VBox spacing="12.0" styleClass="card-panel">
+                        <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                        <Label styleClass="section-title" text="New Borrow Request" />
+
+                        <Label text="Student ID:" />
+                        <TextField fx:id="studentIdField" promptText="e.g., 2026-00142" />
+
+                        <Label text="Student Full Name:" />
+                        <TextField fx:id="studentNameField" promptText="e.g., Juan Dela Cruz" />
+
+                        <Label text="Grade &amp; Section:" />
+                        <TextField fx:id="sectionField" promptText="e.g., Grade 12 - CSS A" />
+
+                        <Label text="CSS Equipment / Tool:" />
+                        <ComboBox fx:id="equipmentComboBox" maxWidth="1.7976931348623157E308" promptText="Select Available Equipment" />
+
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Button maxWidth="1.7976931348623157E308" onAction="#handleBorrowEquipment" styleClass="btn-primary" text="Issue Equipment" />
+                    </VBox>
+
+                    <!-- Right Table -->
+                    <VBox spacing="10.0">
+                        <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="section-title" text="Borrowing Logs" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button onAction="#handleReturnEquipment" styleClass="btn-success" text="Mark Selected as Returned" />
+                        </HBox>
+
+                        <TableView fx:id="borrowTable" VBox.vgrow="ALWAYS">
+                            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                            <columns>
+                                <TableColumn fx:id="colRefId" text="Ref #" />
+                                <TableColumn fx:id="colStudent" text="Student Name" />
+                                <TableColumn fx:id="colBorrowedItem" text="Equipment" />
+                                <TableColumn fx:id="colDate" text="Date Borrowed" />
+                                <TableColumn fx:id="colBorrowStatus" text="Status" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </SplitPane>
+            </Tab>
+
+            <!-- TAB 2: INVENTORY -->
+            <Tab text="CSS Equipment Inventory">
+                <VBox spacing="15.0">
+                    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card-panel">
+                        <padding><Insets bottom="12.0" left="15.0" right="15.0" top="12.0" /></padding>
+                        <Label style="-fx-font-weight: bold;" text="Add New Asset:" />
+                        <TextField fx:id="eqCodeField" promptText="Asset Code (e.g., CSS-07)" />
+                        <TextField fx:id="eqNameField" prefWidth="220.0" promptText="Tool/Equipment Name" />
+                        <ComboBox fx:id="categoryBox" promptText="Category" />
+                        <Button onAction="#handleAddEquipment" styleClass="btn-dark" text="+ Add Equipment" />
+                    </HBox>
+
+                    <TableView fx:id="equipmentTable" VBox.vgrow="ALWAYS">
+                        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="colEqCode" text="Asset Code" />
+                            <TableColumn fx:id="colEqName" text="Equipment Name" />
+                            <TableColumn fx:id="colEqCategory" text="Category" />
+                            <TableColumn fx:id="colEqStatus" text="Availability Status" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

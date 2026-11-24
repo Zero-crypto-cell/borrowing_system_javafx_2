@@ -1,0 +1,58 @@
+.root-pane {
+    -fx-background-color: #f4f6f9;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.header-box {
+    -fx-background-color: #1e293b;
+}
+
+.header-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.header-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #94a3b8;
+}
+
+.card-panel {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 5;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 15;
+    -fx-cursor: hand;
+}
+.btn-primary:hover { -fx-background-color: #1d4ed8; }
+
+.btn-success {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+}
+.btn-success:hover { -fx-background-color: #15803d; }
+
+.btn-dark {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+}
+.btn-dark:hover { -fx-background-color: #334155; }
